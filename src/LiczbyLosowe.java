@@ -3,25 +3,30 @@ import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
 
+import static sun.plugin2.os.windows.OSVERSIONINFOA.size;
+
 public class LiczbyLosowe {
     public static void main(String[] args) {
 
         TreeSet<Integer> num = new TreeSet<>();
         Random rand = new Random();
 
+
         int sum = 0;
-        for (int i = 0; i <= 50; i++) {
+        int size;
+        while (num.size() <= 49) {
+//        for (int i = 0; i <= 50; i++) {
             int n = rand.nextInt(1000) + 0;  //50 is the maximum and the 1 is our minimum
             num.add(n);
             sum += n;
-
         }
+        System.out.println("Ilość liczb unikalnych: " + num.size());
         System.out.println("Zbiór wylosowanych 50 liczb: ");
         for (Integer integer : num) {
             System.out.print(integer + " ");
         }
 
-        int avg = sum / 50;
+        double avg = sum / 50;
         System.out.println("\n" + "Najmniejsza wylosowana liczba: " + num.first());
         System.out.println("Największa wylosowana liczba: " + num.last());
         System.out.println("Srednia: " + avg);
